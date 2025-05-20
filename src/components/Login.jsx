@@ -1,10 +1,35 @@
 import { use } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router";
+
 
 const Login = () => {
-  const userInfo = use(AuthContext);
-  console.log(userInfo);
-
+  const {  googleLogin}=use(AuthContext)
+  console.log(googleLogin)
+  const { loginF } = use(AuthContext);
+  const handleLogin=(e)=>{
+e.preventDefault()
+const email=e.target.email.value;
+const password=e.target.password.value;
+console.log(email,password)
+loginF(email, password)
+  .then((result) => {
+    console.log(result.user);
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+  
+  }
+ const handleGoogle=()=>{
+  googleLogin()
+  .then(result=>{
+    console.log(result)
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+ }
   return (
     <div>
       <div className="w-full max-w-md p-4 mx-auto mt-10 rounded-md shadow sm:p-8 bg-amber-100">
@@ -12,11 +37,11 @@ const Login = () => {
           Login to your account
         </h2>
 
-        <form noValidate="" action="" className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="email" className="block text-lg">
-                Email address
+                Email
               </label>
               <input
                 type="email"
@@ -31,7 +56,6 @@ const Login = () => {
                 <label htmlFor="password" className="text-lg">
                   Password
                 </label>
-               
               </div>
               <input
                 type="password"
@@ -44,7 +68,7 @@ const Login = () => {
           </div>
 
           <button
-            type="button"
+            type="submit"
             className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
           >
             Sign in
@@ -65,36 +89,42 @@ const Login = () => {
             <hr className="w-full dark:text-gray-600" />
           </div>
           <div className="flex items-center justify-center">
-            <button className="btn bg-white text-black w-full border-[#e5e5e5]">
-              <svg
-                aria-label="Google logo"
-                width="16"
-                height="16"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
+            <Link to="/">
+              {" "}
+              <button
+                onClick={handleGoogle}
+                className="btn bg-white text-black w-full border-[#e5e5e5]"
               >
-                <g>
-                  <path d="m0 0H512V512H0" fill="#fff"></path>
-                  <path
-                    fill="#34a853"
-                    d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-                  ></path>
-                  <path
-                    fill="#4285f4"
-                    d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-                  ></path>
-                  <path
-                    fill="#fbbc02"
-                    d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-                  ></path>
-                  <path
-                    fill="#ea4335"
-                    d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-                  ></path>
-                </g>
-              </svg>
-              Login with Google
-            </button>
+                <svg
+                  aria-label="Google logo"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <g>
+                    <path d="m0 0H512V512H0" fill="#fff"></path>
+                    <path
+                      fill="#34a853"
+                      d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
+                    ></path>
+                    <path
+                      fill="#4285f4"
+                      d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
+                    ></path>
+                    <path
+                      fill="#fbbc02"
+                      d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
+                    ></path>
+                    <path
+                      fill="#ea4335"
+                      d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
+                    ></path>
+                  </g>
+                </svg>
+                Login with Google
+              </button>
+            </Link>
           </div>
         </form>
       </div>
