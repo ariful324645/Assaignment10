@@ -1,10 +1,12 @@
-import React, { use, useState } from "react";
+import React, { use} from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router";
+import { ToastContainer,  } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const [errorMessage, setErrorMessage] = useState("");
-
+  
+// const [errorMessage, setErrorMessage] = useState("");
   const { googleLogin } = use(AuthContext);
   const { createUser } = use(AuthContext);
 
@@ -19,38 +21,88 @@ const Register = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     if (!passwordRegex.test(password)) {
-       if (password.length < 6) {
-        setErrorMessage("Password must be at least 6 characters long.");
-      }
-    else if (!/[A-Z]/.test(password)) {
-        setErrorMessage("Must have an Uppercase letter in the password");
+      if (password.length < 6) {
+      
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Password must be 6 character",
+            showConfirmButton: false,
+            timer: 1500,
+          })
+          return;
+        
+      } else if (!/[A-Z]/.test(password)) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Must have an Uppercase letter in the password ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
       } else if (!/[a-z]/.test(password)) {
-        setErrorMessage("Must have an Lowercase letter in the password");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Must have an Lowercase letter in the password ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return
       } else {
-        setErrorMessage(
-          "Password must include uppercase and lowercase letters."
-        );
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
       }
-      return;
+    
+      // return;
     }
 
-    setErrorMessage("");
+   
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.message);
+        
       });
   };
   const GoogleRegister = () => {
     googleLogin()
       .then((result) => {
         console.log(result);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: " Error firebase",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
       });
   };
   return (
@@ -110,11 +162,11 @@ const Register = () => {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             {errorMessage && (
               <p className="text-red-700 font-semibold">{errorMessage}</p>
             )}
-          </div>
+          </div> */}
           <button
             type="submit"
             className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
@@ -173,6 +225,7 @@ const Register = () => {
               </button>
             </Link>
           </div>
+          <ToastContainer />
         </form>
       </div>
     </div>

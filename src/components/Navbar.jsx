@@ -3,12 +3,12 @@ import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   return (
-    <div className="bg-base-200 py-1">
+    <div className="bg-base-300 ">
       <div className="navbar w-11/12 mx-auto ">
         <div className="navbar-start">
           <div className="">
             <img
-              className="w-[80px] h-[80px] rounded-full"
+              className="w-[50px] h-[50px] rounded-full"
               src="https://i.ibb.co/VRXG3SF/24650-1.jpg"
               alt=""
             />

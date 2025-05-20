@@ -8,6 +8,8 @@ import MyListings from "../pages/MyListings";
 import FindRoommate from "../pages/FindRoommate";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import Hero from "../components/Hero";
+
 
 
 const router = createBrowserRouter([
@@ -40,6 +42,9 @@ const router = createBrowserRouter([
       },{
         path:"/register",
         Component:Register
+      },{
+        path:"/hero",
+        Component:Hero
       }
      
     ],
