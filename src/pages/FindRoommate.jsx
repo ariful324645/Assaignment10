@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const FindRoommate = () => {
   const handleAddRoommate = (e) => {
@@ -17,7 +18,17 @@ const FindRoommate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("after adding Roommate",data);
+        if (data.insertedId){
+          console.log("after adding Roommate", data);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Roommate added successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      
       });
   };
   return (
@@ -69,9 +80,7 @@ const FindRoommate = () => {
               defaultValue=""
               required
             >
-              <option value="" disabled>
-                Select room type
-              </option>
+              
               <option value="Single">Single</option>
               <option value="Shared">Shared</option>
             </select>
@@ -86,12 +95,10 @@ const FindRoommate = () => {
               defaultValue=""
               required
             >
-              <option value="" disabled>
-                Life Style Preference
-              </option>
+            
               <option value="pets">Pets</option>
               <option value="smoking">Smoking</option>
-              <option value="LifeStyle"> LifeStyle</option>
+              <option value="life style"> LifeStyle</option>
             </select>
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
@@ -107,7 +114,7 @@ const FindRoommate = () => {
             <label className="label text-xl font-semibold">Contact Info</label>
             <input
               type="text"
-              name="contact-into"
+              name="contact-info"
               className="input w-full"
               placeholder="contact info"
             />
@@ -120,11 +127,8 @@ const FindRoommate = () => {
               defaultValue=""
               required
             >
-              <option value="" disabled>
-                Availability
-              </option>
-              <option value="Single">Availability</option>
-              <option value="Shared">Not Availability</option>
+              <option value="available">Available</option>
+              <option value="not available">Not available</option>
             </select>
           </fieldset>
 
