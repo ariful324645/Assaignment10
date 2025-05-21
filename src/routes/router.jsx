@@ -10,6 +10,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
+import RoommateDetails from "../components/RoommateDetails";
 
 
 
@@ -54,6 +55,12 @@ const router = createBrowserRouter([
         path: "/featuresRoommates",
 
         Component: FeaturesRoommmates,
+      },
+      {
+        path: "/roomDetails/:id",
+        loader: ({params}) =>
+          fetch(`http://localhost:3000/roommates/${params.id}`),
+        Component: RoommateDetails,
       },
     ],
   },
