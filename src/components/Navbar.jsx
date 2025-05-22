@@ -72,12 +72,13 @@ const Navbar = () => {
 
         {user ? (
           <div className="navbar-end flex items-center gap-5">
-            <img
-              src={user.photoURL || "/default-avatar.png"}
-              alt="User Profile"
-              className="w-10 h-10 rounded-full object-cover border-2 border-secondary tooltip"
-              data-tip={user.displayName || "User"}
-            />
+            <div className="tooltip text-blue-500 tooltip-bottom" data-tip={user.displayName}>
+              <img
+                src={user.photoURL}
+                alt="User Profile"
+                className="w-10 h-10  rounded-full object-cover border-2 border-secondary"
+              />
+            </div>
 
             <button
               onClick={handleLogOut}

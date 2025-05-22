@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Register = () => {
   // const [errorMessage, setErrorMessage] = useState("");
   const { googleLogin } = use(AuthContext);
-  const { createUser } = use(AuthContext);
+  const { createUser, updateUser, setUser,user } = use(AuthContext);
   const navigate=useNavigate()
 
   const handleRegister = (e) => {
@@ -72,11 +72,17 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        updateUser({displayName:name,photoURL:photo}).then(()=>{
+setUser({ ...user, displayName: name, photoURL: photo });
+        }).catch(error=>{
+          console.log(error)
+        })
         navigate('/')
       
       })
       .catch((error) => {
         console.log(error);
+        setUser(error)
       });
   };
   const GoogleRegister = () => {
