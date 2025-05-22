@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const BrowseListings = () => {
   const initialUsers = useLoaderData();
@@ -19,15 +19,12 @@ const BrowseListings = () => {
             <tr>
               <th className="text-lg">SL</th>
               <th className="text-lg">Title</th>
-             
-             
-             
+
               <th className="text-lg">Location</th>
               <th className="text-lg">Rent Amount</th>
               <th className="text-lg">Room type</th>
               <th className="text-lg">Availability</th>
               <th className="text-lg">Actions</th>
-             
             </tr>
           </thead>
           <tbody className="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800">
@@ -35,7 +32,7 @@ const BrowseListings = () => {
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>{user.title}</td>
-              
+
                 <td>{user.location}</td>
                 <td>{user.rentAmount}</td>
                 <td>{user.room}</td>
@@ -49,9 +46,11 @@ const BrowseListings = () => {
                   {user.availability}
                 </td>
                 <td>
-                  <button className="btn btn-primary rounded-full">
-                    See More <FaArrowRight />
-                  </button>
+                  <Link to={`/roomDetails/${user._id}`}>
+                    <button className="btn btn-primary rounded-full">
+                      See More <FaArrowRight />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

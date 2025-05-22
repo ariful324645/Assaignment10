@@ -114,9 +114,9 @@ const FindRoommate = () => {
             <label className="label text-xl font-semibold">Contact Info</label>
             <input
               type="text"
-              name="contact-info"
+              name="contactInfo"
               className="input w-full"
-              placeholder="contact info"
+              placeholder="contactInfo"
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
