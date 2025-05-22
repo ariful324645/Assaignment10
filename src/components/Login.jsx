@@ -1,11 +1,12 @@
 import { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
   const {  googleLogin}=use(AuthContext)
-  console.log(googleLogin)
+const navigate=useNavigate()
   const { loginF } = use(AuthContext);
   const handleLogin=(e)=>{
 e.preventDefault()
@@ -15,6 +16,16 @@ console.log(email,password)
 loginF(email, password)
   .then((result) => {
     console.log(result.user);
+     Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Login successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+    navigate('/')
+
+
   })
   .catch((error) => {
     console.log(error)
@@ -25,6 +36,14 @@ loginF(email, password)
   googleLogin()
   .then(result=>{
     console.log(result)
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Login successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    navigate('/')
   })
   .catch(error=>{
     console.log(error)

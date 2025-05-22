@@ -1,13 +1,12 @@
 import React from "react";
 
-
-
 const Hero = () => {
   const carouselData = [
     {
       id: 1,
       title: "Cozy Room in Brooklyn Apartment",
-      image: "https://i.ibb.co/kSDFjSn/room1.jpg",
+      image:
+        "https://i.ibb.co/nNR9RCTH/student-dormitory-flat-background-with-young-girls-living-room-welcoming-new-member-team-vector-illu.jpg",
       location: "Brooklyn, New York",
       rent: 950,
       availability: "Available",

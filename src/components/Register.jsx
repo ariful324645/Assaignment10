@@ -1,14 +1,14 @@
-import React, { use} from "react";
+import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router";
-import { ToastContainer,  } from "react-toastify";
+import { Link, useNavigate } from "react-router";
+import { ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  
-// const [errorMessage, setErrorMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
   const { googleLogin } = use(AuthContext);
   const { createUser } = use(AuthContext);
+  const navigate=useNavigate()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,16 +22,14 @@ const Register = () => {
 
     if (!passwordRegex.test(password)) {
       if (password.length < 6) {
-      
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "Password must be 6 character",
-            showConfirmButton: false,
-            timer: 1500,
-          })
-          return;
-        
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Password must be 6 character",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
       } else if (!/[A-Z]/.test(password)) {
         Swal.fire({
           position: "center",
@@ -49,7 +47,7 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        return
+        return;
       } else {
         Swal.fire({
           position: "center",
@@ -60,11 +58,10 @@ const Register = () => {
         });
         return;
       }
-    
+
       // return;
     }
 
-   
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -75,10 +72,11 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate('/')
+      
       })
       .catch((error) => {
         console.log(error);
-        
       });
   };
   const GoogleRegister = () => {
@@ -102,7 +100,6 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-
       });
   };
   return (

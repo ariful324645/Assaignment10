@@ -1,7 +1,26 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import { FaArrowRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, LogOut } = use(AuthContext);
+  const handleLogOut = () => {
+    LogOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "LogOut successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="bg-base-300 ">
       <div className="navbar w-11/12 mx-auto ">
@@ -50,15 +69,33 @@ const Navbar = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="navbar-end flex gap-5">
-          <Link to="/login">
-            <button className="btn btn-primary">Login</button>
-          </Link>
-          <Link to="/register">
-        
-            <button className="btn btn-secondary">SignUp</button>
-          </Link>
-        </div>
+
+        {user ? (
+          <div className="navbar-end flex items-center gap-5">
+            <img
+              src={user.photoURL || "/default-avatar.png"}
+              alt="User Profile"
+              className="w-10 h-10 rounded-full object-cover border-2 border-secondary tooltip"
+              data-tip={user.displayName || "User"}
+            />
+
+            <button
+              onClick={handleLogOut}
+              className="btn btn-secondary flex items-center gap-2"
+            >
+              LogOut <FaArrowRight />
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end flex gap-5">
+            <Link to="/login">
+              <button className="btn btn-primary">Login</button>
+            </Link>
+            <Link to="/register">
+              <button className="btn btn-secondary">SignUp</button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
