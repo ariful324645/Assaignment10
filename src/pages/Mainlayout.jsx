@@ -6,11 +6,15 @@ import Footer from "../components/Footer";
 const Mainlayout = () => {
   return (
     <div>
-  
+      <div className="sticky z-[1000] top-0 ">
         <Navbar></Navbar>
-   
-      <Outlet></Outlet>
-      <Footer></Footer>
+      </div>
+
+      <div className="-z-50">
+        {" "}
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

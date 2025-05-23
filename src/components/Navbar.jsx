@@ -23,7 +23,7 @@ const Navbar = () => {
   };
   return (
     <div className="bg-base-300 ">
-      <div className="navbar w-11/12 mx-auto ">
+      <div className="navbar   w-11/12 mx-auto ">
         <div className="navbar-start">
           <div className="">
             <img
@@ -72,7 +72,10 @@ const Navbar = () => {
 
         {user ? (
           <div className="navbar-end flex items-center gap-5">
-            <div className="tooltip text-blue-500 tooltip-bottom" data-tip={user.displayName}>
+            <div
+              className="tooltip text-blue-500 tooltip-bottom"
+              data-tip={user.displayName}
+            >
               <img
                 src={user.photoURL}
                 alt="User Profile"
