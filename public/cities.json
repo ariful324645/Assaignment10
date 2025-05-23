@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "city": "New York City",
+    "title": "Live in the Heart of NYC",
+    "description": "Experience vibrant city life with endless roommate opportunities in Manhattan and Brooklyn.",
+    "image": "https://i.ibb.co/bRPLqPMY/new-york-city-manhattan-midtown-dusk-with-brooklyn-bridge-usa.jpg",
+    "averageRent": 1400,
+    "listings": 124,
+    "name": "Emily"
+  },
+  {
+    "id": 2,
+    "city": "San Francisco",
+    "title": "Tech Hub & Urban Living",
+    "description": "Find roommates in one of the world's leading tech cities with beautiful bay views.",
+    "image": "https://i.ibb.co/spHTrbKV/high-angle-shot-illuminated-suspension-bridge-night-181624-13178.jpg",
+    "averageRent": 1600,
+    "listings": 98,
+    "name": "Jason"
+  },
+  {
+    "id": 3,
+    "city": "Chicago",
+    "title": "Affordable City Living",
+    "description": "Explore shared housing near parks, the lakefront, and downtown attractions.",
+    "image": "https://i.ibb.co/WNvXMBvP/neal-kharawala-XXA8-PTu-LD1-Y-unsplash.jpg",
+    "averageRent": 1100,
+    "listings": 85,
+    "name": "Sophia"
+  },
+  {
+    "id": 4,
+    "city": "Austin",
+    "title": "Live Music Capital",
+    "description": "Join a fun and friendly roommate scene in Austin's unique neighborhoods.",
+    "image": "https://i.ibb.co/6cbMsjHx/mitchell-kmetz-zt-Vc-GTSD8xw-unsplash.jpg",
+    "averageRent": 1000,
+    "listings": 73,
+    "name": "Carlos"
+  },
+  {
+    "id": 5,
+    "city": "Los Angeles",
+    "title": "Sun, Surf, and City",
+    "description": "Room with someone near the beach, the studios, or the lively nightlife spots.",
+    "image": "https://i.ibb.co/nNq52MDW/venti-views-c-HRDev-KFDBw-unsplash.jpg",
+    "averageRent": 1300,
+    "listings": 112,
+    "name": "Ava"
+  },
+  {
+    "id": 6,
+    "city": "Seattle",
+    "title": "Nature Meets Innovation",
+    "description": "Discover roommate options in Seattle’s lush, tech-driven environment.",
+    "image": "https://i.ibb.co/DfGS0VkW/zhifei-zhou-QEob0-Fp4rdg-unsplash.jpg",
+    "averageRent": 1200,
+    "listings": 67,
+    "name": "Liam"
+  }
+]

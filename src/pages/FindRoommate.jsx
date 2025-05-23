@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const FindRoommate = () => {
+  const{user}=use(AuthContext)
   const handleAddRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,15 +34,14 @@ const FindRoommate = () => {
       });
   };
   return (
-    <div className="w-11/12 mx-auto py-8 space-y-8">
+    <div className="w-9/12 mx-auto py-8 space-y-8">
       <div className="text-center space-y-4">
         <h1 className="text-2xl text-blue-600 font-bold"> Find Roommate</h1>
-        <p className="font-sm font-semibold ">
+        <p className="font-sm w-3/4 mx-auto font-semibold ">
           Our platform connects you with like-minded individuals who are also
           searching for a comfortable and respectful living arrangement. Whether
-          you're a student, young professional, or someone new to the city,
-          easily browse profiles, compare preferences, and match with potential
-          roommates based on lifestyle, budget, and location.
+          you're a student, young professional, or someone new to the city.
+       
         </p>
       </div>
       <form onSubmit={handleAddRoommate}>
@@ -135,6 +136,8 @@ const FindRoommate = () => {
             <input
               type="email"
               name="email"
+              defaultValue={user.email}
+              readOnly
               className="input w-full"
               placeholder="email"
             />
@@ -144,6 +147,8 @@ const FindRoommate = () => {
             <input
               type="text"
               name="name"
+              defaultValue={user.displayName}
+              readOnly
               className="input w-full"
               placeholder="name"
             />

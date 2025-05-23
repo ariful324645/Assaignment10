@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Set a Budget Together",
+    "description": "Discuss and agree on shared expenses like utilities, groceries, and cleaning supplies.",
+    "authorName": "Alex Morgan",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/3mft8CXx/portrait-confident-young-handsome-man-smiling-with-crossed-arms.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Create a Cleaning Schedule",
+    "description": "Plan weekly cleaning duties to avoid confusion and maintain cleanliness.",
+    "authorName": "Jamie Lee",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/bj6vBJR3/confident-handsome-man-extending-his-hand-handshake-smiling-determined.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Be Considerate with Noise",
+    "description": "Keep volume low during late hours and use headphones when needed.",
+    "authorName": "Taylor Kim",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/1JGjyRCZ/handsome-bearded-guy-posing-against-white-wall.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Use a Shared Calendar",
+    "description": "Coordinate chores, events, and guest visits using a digital calendar or app.",
+    "authorName": "Morgan Blake",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/8Lxn77GN/man-wearing-t-shirt-gesturing.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Discuss Guest Policies",
+    "description": "Agree on how often guests can visit and whether overnight stays are acceptable.",
+    "authorName": "Sam Rivera",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/wrbb3mQ1/portrait-cheerful-confident-young-handsome-man-with-beard-smiling-crossed-arms.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Handle Conflicts Calmly",
+    "description": "Address issues respectfully and privately without involving others or escalating.",
+    "authorName": "Jordan Wells",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/ZZKD6HV/portrait-joyful-young-man-white-shirt.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Respect Shared Spaces",
+    "description": "Clean up after yourself and avoid leaving personal items in common areas.",
+    "authorName": "Avery king",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/PZ6jRRht/portrait-smiling-young-man-rubbing-his-hands.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Appreciate Each Other",
+    "description": "A simple thank-you goes a long way—show appreciation for your roommate’s efforts.",
+    "authorName": "Riley Chen",
+    "date": "2025-05-23",
+    "image": "https://i.ibb.co/B5dDQNH8/young-bearded-man-with-striped-shirt-1.jpg"
+  }
+]

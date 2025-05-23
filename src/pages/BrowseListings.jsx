@@ -18,9 +18,8 @@ const BrowseListings = () => {
           <thead className="">
             <tr>
               <th className="text-lg">SL</th>
-              <th className="text-lg">Title</th>
+              <th className=" text-lg">Title</th>
 
-              <th className="text-lg">Location</th>
               <th className="text-lg">Rent Amount</th>
               <th className="text-lg">Room type</th>
               <th className="text-lg">Availability</th>
@@ -31,9 +30,8 @@ const BrowseListings = () => {
             {users.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
-                <td>{user.title}</td>
+                <td className="max-w-[50ch] truncate">{user.title}</td>
 
-                <td>{user.location}</td>
                 <td>{user.rentAmount}</td>
                 <td>{user.room}</td>
                 <td

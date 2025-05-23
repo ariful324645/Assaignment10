@@ -12,6 +12,8 @@ import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
 import RoommateDetails from "../components/RoommateDetails";
 import UpdateRoommate from "../components/UpdateRoommate";
+import RoommateTips from "../components/RoommateTips";
+import TopCities from "../components/TopCities";
 
 const router = createBrowserRouter([
   {
@@ -64,9 +66,18 @@ const router = createBrowserRouter([
         Component: RoommateDetails,
       },
       {
-        path:'updateRoommate/:id',
-        loader:({params})=>fetch(`http://localhost:3000/roommates/${params.id}`),
-        Component:UpdateRoommate
+        path: "updateRoommate/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/roommates/${params.id}`),
+        Component: UpdateRoommate,
+      },
+      {
+        path: "/roommateTips",
+        Component: RoommateTips,
+      },
+      {
+        path:"/topCities",
+        Component:TopCities
       }
     ],
   },

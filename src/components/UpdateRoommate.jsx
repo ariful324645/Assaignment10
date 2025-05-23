@@ -45,7 +45,7 @@ const UpdateRoommate = () => {
       });
   };
   return (
-    <div className="w-11/12 mx-auto py-8 space-y-8">
+    <div className="w-9/12 mx-auto py-8 space-y-8">
       <div className="text-center space-y-4">
         <h1 className="text-2xl text-blue-600 font-bold"> Update Roommate</h1>
       </div>

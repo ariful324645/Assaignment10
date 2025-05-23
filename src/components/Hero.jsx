@@ -1,82 +1,68 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// Slide data
+const slides = [
+  {
+    image: "https://i.ibb.co/KxgNPrRg/99z-2206-w009-n001-150b-p14-150.jpg",
+    title: "Match with compatible roommates based on preferences",
+    description: "Smart roommate matching for better shared living.",
+    location: "London, UK",
+  },
+  {
+    image: "https://i.ibb.co/pvDv1xyG/2208-w023-n003-2794b-p1-2794.jpg",
+    title: " Spot your perfect roommate match quickly and easily",
+    description: "Find trusted roommates quickly and easily",
+    location: "Tokyo, Japan",
+  },
+  {
+    image: "https://i.ibb.co/RGqFmtw1/43084.jpg",
+    title: "Find people to share your living space and lifestyle",
+    description:
+      "Match with the perfect roommate based on lifestyle and location.",
+    location: "Tokyo, Japan",
+  },
+];
 
 const Hero = () => {
-  const carouselData = [
-    {
-      id: 1,
-      title: "Cozy Room in Brooklyn Apartment",
-      image: "https://i.ibb.co/pvDv1xyG/2208-w023-n003-2794b-p1-2794.jpg",
-      location: "Brooklyn, New York",
-      description:
-        "A quiet, well-lit room perfect for students or remote workers.",
-    },
-    {
-      id: 2,
-      title: "Shared Room in Downtown LA",
-      image: "https://i.ibb.co/KxgNPrRg/99z-2206-w009-n001-150b-p14-150.jpg",
-      location: "Los Angeles, California",
-      description: "Affordable shared space in a lively downtown location.",
-    },
-
-    {
-      id: 3,
-      title: "Spacious Room for Students",
-      image:
-        "https://i.ibb.co/tPFFvt2K/2305-i605-046-F-m005-c9-student-dormitory-color-set.jpg",
-      location: "Austin, Texas",
-      description:
-        "Ideal for students, with easy access to campus and transit.",
-    },
-    {
-      id: 4,
-      title: "Furnished Room Near University",
-      image: "https://i.ibb.co/RGqFmtw1/43084.jpg",
-      location: "Boston, Massachusetts",
-      description:
-        "Fully furnished room within walking distance of the university.",
-    },
-  ];
-  
-
   return (
-    <div className="w-11/12 mt-5 mx-auto">
-      <div className="carousel w-full">
-        {carouselData.map((item, index) => (
-          <div
-            id={`slide${index}`}
-            key={item.id}
-            className="carousel-item relative w-full"
-          >
-            <img
-              src={item.image}
-              className="w-full h-[400px] object-cover rounded-lg"
-              alt={item.title}
-            />
-            <div className="absolute flex flex-col justify-end  w-full h-full text-white p-5">
-              <h2 className="text-2xl font-bold">{item.title}</h2>
-              <p>📍 {item.location}</p>
-              <p>{item.description}</p>
-             
-              <div className="mt-2">
-                <a
-                  href={`#slide${(index + 1) % carouselData.length}`}
-                  className="btn btn-sm mr-2"
-                >
-                  Next
-                </a>
-                <a
-                  href={`#slide${
-                    (index - 1 + carouselData.length) % carouselData.length
-                  }`}
-                  className="btn btn-sm"
-                >
-                  Prev
-                </a>
+    <div className="w-11/12  h-80 mt-5 mb-30  mx-auto px-4 ">
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={30}
+        slidesPerView={1}
+        navigation
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+              {/* Image */}
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+              />
+
+              {/* Overlay */}
+              <div className="absolute top-0 left-0 bg-black opacity-60 w-full h-full  z-10"></div>
+
+              {/* Text content */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center text-white px-4">
+                <h2 className="text-3xl font-bold mb-2">{slide.title}</h2>
+                <p className="mb-1">{slide.description}</p>
+                <p className="text-sm text-gray-300">
+                  <strong>Location:</strong> {slide.location}
+                </p>
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
