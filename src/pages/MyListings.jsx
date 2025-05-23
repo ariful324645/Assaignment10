@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { RxUpdate } from "react-icons/rx";
 import { MdDeleteOutline } from "react-icons/md";
 
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const MyListings = () => {
@@ -12,7 +12,6 @@ const MyListings = () => {
 
   const { user } = use(AuthContext);
   const [myListings, setMylistings] = useState([]);
- 
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-listing/${user?.email}`)
@@ -52,7 +51,6 @@ const MyListings = () => {
       }
     });
   };
-  
 
   return (
     <div className="min-h-screen mt-8 bg-gray-50 ">
@@ -72,7 +70,9 @@ const MyListings = () => {
                 Rent Amount
               </th>
               <th className="py-3 px-4 border-b border-blue-200">Room Type</th>
-              <th className="py-3 px-4 pl-16 border-b border-blue-200">Actions</th>
+              <th className="py-3 px-4 pl-16 border-b border-blue-200">
+                Actions
+              </th>
             </tr>
           </thead>
 
@@ -89,10 +89,13 @@ const MyListings = () => {
                 <td className="py-2 px-4">{mylist.room}</td>
                 <td className="py-2 px-4">
                   <div className="flex gap-2 ">
-                    <button className="btn btn-sm btn-info rounded-md">
-                      <RxUpdate className="mr-1" />
-                      Update
-                    </button>
+                    <Link to={`/updateRoommate/${mylist._id}`}>
+                      <button className="btn btn-sm btn-info rounded-md">
+                        <RxUpdate className="mr-1" />
+                        Update
+                      </button>
+                    </Link>
+
                     <button
                       onClick={() => handleDelete(mylist._id)}
                       className="btn btn-sm btn-error rounded-md"

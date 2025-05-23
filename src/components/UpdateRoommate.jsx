@@ -1,55 +1,62 @@
 import React from "react";
+import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
-const FindRoommate = () => {
-  const handleAddRoommate = (e) => {
+const UpdateRoommate = () => {
+  const {
+    availability,
+    contactInfo,
+    description,
+    email,
+    lifestyle,
+    location,
+
+    rentAmount,
+    room,
+    title,
+    _id,
+  } = useLoaderData();
+
+  const handleUpdateRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData=new FormData(form)
-    const newRoommate=Object.fromEntries(formData.entries())
-    console.log(newRoommate)
-
-    fetch("http://localhost:3000/roommates", {
-                method:'POST',
-                headers:{
-                                "content-type":"application/json"
-                },
-                body:JSON.stringify(newRoommate)
+    const formData = new FormData(form);
+    const updatedRoommate = Object.fromEntries(formData.entries());
+    console.log(updatedRoommate);
+    fetch(`http://localhost:3000/roommates/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedRoommate),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId){
-          console.log("after adding Roommate", data);
+        if (data.modifiedCount) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Roommate added successfully",
+            title: "Roommate Updated successfully",
             showConfirmButton: false,
             timer: 1500,
           });
         }
-      
+        console.log(data);
       });
   };
   return (
     <div className="w-11/12 mx-auto py-8 space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-2xl text-blue-600 font-bold"> Find Roommate</h1>
-        <p className="font-sm font-semibold ">
-          Our platform connects you with like-minded individuals who are also
-          searching for a comfortable and respectful living arrangement. Whether
-          you're a student, young professional, or someone new to the city,
-          easily browse profiles, compare preferences, and match with potential
-          roommates based on lifestyle, budget, and location.
-        </p>
+        <h1 className="text-2xl text-blue-600 font-bold"> Update Roommate</h1>
       </div>
-      <form onSubmit={handleAddRoommate}>
+      <form onSubmit={handleUpdateRoommate}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
             <label className="label text-xl font-semibold">Title</label>
             <input
               type="text"
               name="title"
+              defaultValue={title}
               className="input w-full"
               placeholder="Tittle"
             />
@@ -59,6 +66,7 @@ const FindRoommate = () => {
             <input
               type="text"
               name="location"
+              defaultValue={location}
               className="input w-full"
               placeholder="Location"
             />
@@ -68,6 +76,7 @@ const FindRoommate = () => {
             <input
               type="text"
               name="rentAmount"
+              defaultValue={rentAmount}
               className="input w-full"
               placeholder="amount"
             />
@@ -77,7 +86,7 @@ const FindRoommate = () => {
             <select
               name="room"
               className="select w-full"
-              defaultValue=""
+              defaultValue={room}
               required
             >
               <option value="Single">Single</option>
@@ -91,7 +100,7 @@ const FindRoommate = () => {
             <select
               name="lifestyle"
               className="select w-full"
-              defaultValue=""
+              defaultValue={lifestyle}
               required
             >
               <option value="pets">Pets</option>
@@ -104,6 +113,7 @@ const FindRoommate = () => {
             <input
               type="text"
               name="description"
+              defaultValue={description}
               className="input w-full"
               placeholder="Description"
             />
@@ -113,6 +123,7 @@ const FindRoommate = () => {
             <input
               type="text"
               name="contactInfo"
+              defaultValue={contactInfo}
               className="input w-full"
               placeholder="contactInfo"
             />
@@ -122,7 +133,7 @@ const FindRoommate = () => {
             <select
               name="availability"
               className="select w-full"
-              defaultValue=""
+              defaultValue={availability}
               required
             >
               <option value="available">Available</option>
@@ -135,6 +146,7 @@ const FindRoommate = () => {
             <input
               type="email"
               name="email"
+              defaultValue={email}
               className="input w-full"
               placeholder="email"
             />
@@ -144,18 +156,22 @@ const FindRoommate = () => {
             <input
               type="text"
               name="name"
+              defaultValue={email}
               className="input w-full"
               placeholder="name"
             />
           </fieldset>
         </div>
-       
-        <button type="submit" className="btn btn-info text-xl font-semibold mt-6 w-full">
-          Add Roommate
+
+        <button
+          type="submit"
+          className="btn btn-info text-xl font-semibold mt-6 w-full"
+        >
+          Update Roommate
         </button>
       </form>
     </div>
   );
 };
 
-export default FindRoommate;
+export default UpdateRoommate;

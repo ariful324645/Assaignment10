@@ -11,6 +11,7 @@ import Register from "../components/Register";
 import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
 import RoommateDetails from "../components/RoommateDetails";
+import UpdateRoommate from "../components/UpdateRoommate";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
           fetch(`http://localhost:3000/roommates/${params.id}`),
         Component: RoommateDetails,
       },
+      {
+        path:'updateRoommate/:id',
+        loader:({params})=>fetch(`http://localhost:3000/roommates/${params.id}`),
+        Component:UpdateRoommate
+      }
     ],
   },
 ]);
