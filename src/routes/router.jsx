@@ -12,8 +12,6 @@ import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
 import RoommateDetails from "../components/RoommateDetails";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +31,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/myListings",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/roommates/${params.id}`),
         Component: MyListings,
       },
       {
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/roomDetails/:id",
-        loader: ({params}) =>
+        loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
         Component: RoommateDetails,
       },
