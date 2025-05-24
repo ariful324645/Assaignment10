@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router";
 
 const RoommateDetails = () => {
   const user = useLoaderData();
-  console.log(user)
+  // console.log(user)
   const {
     _id,
     title,
@@ -21,7 +21,7 @@ const RoommateDetails = () => {
   // console.log(user);
   return (
     <div>
-      <div className="w-[500px] mx-auto rounded-2xl my-10 shadow-xl bg-white hover:shadow-2xl transition-all duration-300 border border-gray-300 p-4 space-y-4">
+      <div className="w-[550px] mx-auto rounded-2xl my-10 shadow-xl bg-white hover:shadow-2xl transition-all duration-300 border border-gray-300 py-4 px-8 space-y-4">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
           <p className="text-xl text-green-600 font-semibold flex items-center gap-1">

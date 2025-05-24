@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaArrowRight } from "react-icons/fa";
 import Swal from "sweetalert2";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, LogOut } = use(AuthContext);
@@ -72,16 +74,22 @@ const Navbar = () => {
 
         {user ? (
           <div className="navbar-end flex items-center gap-5">
-            <div
-              className="tooltip text-blue-500 tooltip-bottom"
-              data-tip={user.displayName}
-            >
+           
+            <>
               <img
                 src={user.photoURL}
                 alt="User Profile"
-                className="w-10 h-10  rounded-full object-cover border-2 border-secondary"
+                className="w-10 h-10 rounded-full object-cover border-2 border-secondary z-40 relative"
+                data-tooltip-id="user-tooltip"
+                data-tooltip-content={user.displayName}
               />
-            </div>
+              <Tooltip
+                id="user-tooltip"
+                place="top"
+                className="z-50 !bg-gray-800 !text-white !px-2 !py-1 !rounded-md"
+                style={{ zIndex: 9999 }}
+              />
+            </>
 
             <button
               onClick={handleLogOut}

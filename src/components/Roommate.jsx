@@ -21,7 +21,7 @@ const Roommate = ({ roommate }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://roommate-finder-server-one.vercel.app/${id}`, {
+        fetch(`https://roommate-finder-server-one.vercel.app/roommates/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -42,26 +42,26 @@ const Roommate = ({ roommate }) => {
   if (isDeleted) return null;
 
   return (
-    <div className="card bg-gradient-to-r from-cyan-100 to-blue-100 card-md shadow-sm">
-      <div className="card-body space-y-3">
-        <h1 className="text-2xl font-semibold">{title}</h1>
-        <p className="text-xl flex gap-2 items-center">
+    <div className="card  bg-white text- card-md shadow-sm">
+      <div className="card-body space-y-3">white
+        <h1 className="text-xl font-semibold">{title}</h1>
+        <p className="flex items-center">
           {" "}
           Price:
           <FaDollarSign />
           {rentAmount}
         </p>
-        <p className="text-xl flex gap-2 items-center">
+        <p className="flex items-center ">
           {" "}
           Location:
           <MdLocationOn />
           {location}
         </p>
-        <p className="text-xl flex gap-2 items-center">
+        <p className="text-sm flex items-center ">
           <MdEventAvailable />
           {availability}
         </p>
-        <p className="text-xl">{description}</p>
+        <p className="text-sm">{description}</p>
         <div className="card-actions">
           <div className="space-x-11">
             <Link to={`/roomDetails/${_id}`}>

@@ -31,7 +31,7 @@ const slides = [
 
 const Hero = () => {
   return (
-    <div className="w-11/12  h-80 mt-5 mb-30  mx-auto px-4 ">
+    <div className="w-11/12  h-80 mt-7 mb-30  mx-auto px-4 ">
       <Swiper
         modules={[Navigation]}
         spaceBetween={30}

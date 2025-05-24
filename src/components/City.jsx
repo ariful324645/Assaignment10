@@ -14,8 +14,8 @@ const City = ({ city, index }) => {
       initial="hidden"
       whileInView="visible"
       variants={cardVariants}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.5 }}
       className="flex flex-col lg:flex-row items-center justify-center gap-8 my-12 px-6 py-8 rounded-xl shadow-lg overflow-hidden bg-gradient-to-r from-indigo-50 via-white to-purple-50 hover:shadow-xl transition-all duration-500"
     >
       {/* Image Section */}
@@ -40,9 +40,7 @@ const City = ({ city, index }) => {
         <h2 className="text-4xl font-extrabold text-indigo-800 mb-3">
           {city.name}
         </h2>
-        <h3 className="text-2xl font-bold text-indigo-800 mb-3">
-          {city.city}
-        </h3>
+        <h3 className="text-2xl font-bold text-indigo-800 mb-3">{city.city}</h3>
         <h3 className="text-xl font-medium text-purple-600 mb-2">
           {city.title}
         </h3>

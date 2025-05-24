@@ -5,12 +5,10 @@ import Home from "../pages/Home";
 import BrowseListings from "../pages/BrowseListings";
 import Error from "../components/Error";
 
-
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
-
 
 import RoommateTips from "../components/RoommateTips";
 import TopCities from "../components/TopCities";
@@ -57,15 +55,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/myListings",
-        loader: ({ params }) =>
-          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
-        hydrateFallbackElement: (
-          <div className="flex text-center items-center justify-center mt-52">
-            <span className="loading loading-bars loading-md"></span>
-            <span className="loading loading-bars loading-lg"></span>
-            <span className="loading loading-bars loading-xl"></span>
-          </div>
-        ),
+        // loader: ({ params }) =>
+        //   fetch(`https://roommate-finder-server-one.vercel.app/my-listing/${params.id}`),
+        // hydrateFallbackElement: (
+        //   <div className="flex text-center items-center justify-center mt-52">
+        //     <span className="loading loading-bars loading-md"></span>
+        //     <span className="loading loading-bars loading-lg"></span>
+        //     <span className="loading loading-bars loading-xl"></span>
+        //   </div>
+        // ),
         element: (
           <PrivateRoute>
             <MyListings></MyListings>
@@ -92,6 +90,7 @@ const router = createBrowserRouter([
         path: "/hero",
         Component: Hero,
       },
+
       {
         path: "/featuresRoommates",
 
@@ -119,7 +118,9 @@ const router = createBrowserRouter([
       {
         path: "updateRoommate/:id",
         loader: ({ params }) =>
-          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
+          fetch(
+            `https://roommate-finder-server-one.vercel.app/roommates/${params.id}`
+          ),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>

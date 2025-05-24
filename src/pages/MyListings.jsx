@@ -3,18 +3,18 @@ import { AuthContext } from "../context/AuthContext";
 import { RxUpdate } from "react-icons/rx";
 import { MdDeleteOutline } from "react-icons/md";
 
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const MyListings = () => {
-  const data = useLoaderData();
+  // const data = useLoaderData();
   // console.log(data);
 
   const { user } = use(AuthContext);
   const [myListings, setMylistings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-listing/${user?.email}`)
+    fetch(`https://roommate-finder-server-one.vercel.app/my-listing/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMylistings(data);
@@ -34,7 +34,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://roommate-finder-server-one.vercel.app/${id}`, {
+        fetch(`https://roommate-finder-server-one.vercel.app/roommates/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
