@@ -4,16 +4,22 @@ import Home from "../pages/Home";
 
 import BrowseListings from "../pages/BrowseListings";
 import Error from "../components/Error";
-import MyListings from "../pages/MyListings";
-import FindRoommate from "../pages/FindRoommate";
+
+
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Hero from "../components/Hero";
 import FeaturesRoommmates from "../components/FeaturesRoommmates";
-import RoommateDetails from "../components/RoommateDetails";
-import UpdateRoommate from "../components/UpdateRoommate";
+
+
 import RoommateTips from "../components/RoommateTips";
 import TopCities from "../components/TopCities";
+import { div } from "framer-motion/client";
+import FindRoommate from "../pages/FindRoommate";
+import PrivateRoute from "./PrivateRoute";
+import MyListings from "../pages/MyListings";
+import RoommateDetails from "../components/RoommateDetails";
+import UpdateRoommate from "../components/UpdateRoommate";
 
 const router = createBrowserRouter([
   {
@@ -25,22 +31,50 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         loader: () => fetch("http://localhost:3000/top-six-roommate"),
+        hydrateFallbackElement: (
+          <div className="flex text-center items-center justify-center mt-46">
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
         Component: Home,
       },
       {
         path: "/browseListings",
         loader: () => fetch("http://localhost:3000/roommates"),
+        hydrateFallbackElement: (
+          <div className="flex text-center items-center justify-center mt-52">
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
         Component: BrowseListings,
       },
       {
         path: "/myListings",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
-        Component: MyListings,
+        hydrateFallbackElement: (
+          <div className="flex text-center items-center justify-center mt-52">
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
+        element:<PrivateRoute>
+          <MyListings></MyListings>
+        </PrivateRoute>
+        
       },
       {
         path: "/findRoommate",
-        Component: FindRoommate,
+        element: (
+          <PrivateRoute>
+            <FindRoommate></FindRoommate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -63,22 +97,42 @@ const router = createBrowserRouter([
         path: "/roomDetails/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
-        Component: RoommateDetails,
+        hydrateFallbackElement: (
+          <div className="flex text-center items-center justify-center mt-52">
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
+        element:<PrivateRoute>
+          <RoommateDetails></RoommateDetails>
+        </PrivateRoute>
+      
       },
       {
         path: "updateRoommate/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
-        Component: UpdateRoommate,
+        hydrateFallbackElement: (
+          <div className="flex text-center items-center justify-center mt-52">
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
+        element:<PrivateRoute>
+          <UpdateRoommate></UpdateRoommate>
+        </PrivateRoute>
+     
       },
       {
         path: "/roommateTips",
         Component: RoommateTips,
       },
       {
-        path:"/topCities",
-        Component:TopCities
-      }
+        path: "/topCities",
+        Component: TopCities,
+      },
     ],
   },
 ]);

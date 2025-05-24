@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 
 const Mainlayout = () => {
   return (
-    <div>
-      <div className="sticky z-[1000] top-0 ">
+    <div className=" bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+      <div className=" ">
         <Navbar></Navbar>
       </div>
 
-      <div className="-z-50">
+      <div>
         {" "}
         <Outlet></Outlet>
         <Footer></Footer>

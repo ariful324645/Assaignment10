@@ -51,7 +51,7 @@ loginF(email, password)
  }
   return (
     <div>
-      <div className="w-full max-w-md p-4 mx-auto mt-10 rounded-md shadow sm:p-8 bg-amber-100">
+      <div className="w-full max-w-md p-4 mx-auto my-10 rounded-md shadow sm:p-8 bg-amber-50 ">
         <h2 className="mb-5 text-3xl font-semibold text-center ">
           Login to your account
         </h2>

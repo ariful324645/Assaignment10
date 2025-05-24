@@ -22,7 +22,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="bg-base-300 ">
+    <div className="bg-white/10 backdrop-blur-lg shadow-lg border-b border-white/20 ">
       <div className="navbar   w-11/12 mx-auto ">
         <div className="navbar-start">
           <div className="">
@@ -38,14 +38,14 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-blue-500 font-bold underline" : ""
+                user && isActive ? "text-blue-500 font-bold underline" : ""
               }
             >
               Home
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-blue-500 font-bold underline" : ""
+                user && isActive ? "text-blue-500 font-bold underline" : ""
               }
               to="/browseListings"
             >
@@ -53,7 +53,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-blue-500 font-bold underline" : ""
+                user && isActive ? "text-blue-500 font-bold underline" : ""
               }
               to="/myListings"
             >
@@ -61,7 +61,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-blue-500 font-bold underline" : ""
+                user && isActive ? "text-blue-500 font-bold underline" : ""
               }
               to="/findRoommate"
             >

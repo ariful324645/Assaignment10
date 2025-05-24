@@ -110,7 +110,7 @@ setUser({ ...user, displayName: name, photoURL: photo });
   };
   return (
     <div>
-      <div className="w-full max-w-md mt-10 p-4 mx-auto rounded-md shadow sm:p-8 bg-amber-100">
+      <div className="w-full max-w-md my-8 p-4 mx-auto rounded-md shadow sm:p-8 bg-amber-50">
         <h2 className="mb-5 text-3xl font-semibold text-center ">
           Register to your account
         </h2>
