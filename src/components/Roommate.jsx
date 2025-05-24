@@ -45,11 +45,11 @@ const Roommate = ({ roommate }) => {
     <div className="card bg-gradient-to-r from-cyan-100 to-blue-100 card-md shadow-sm">
       <div className="card-body space-y-3">
         <h1 className="text-2xl font-semibold">{title}</h1>
-        <p className="text-xl flex gap-2 items-center">
+        <p className="text-xl flex gap-2 items-center"> Price:
           <FaDollarSign />
           {rentAmount}
         </p>
-        <p className="text-xl flex gap-2 items-center">
+        <p className="text-xl flex gap-2 items-center"> Location:
           <MdLocationOn />
           {location}
         </p>

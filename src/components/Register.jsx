@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 const Register = () => {
   // const [errorMessage, setErrorMessage] = useState("");
   const { googleLogin } = use(AuthContext);
-  const { createUser, updateUser, setUser,user } = use(AuthContext);
-  const navigate=useNavigate()
+  const { createUser, updateUser, setUser, user } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -49,10 +49,11 @@ const Register = () => {
         });
         return;
       } else {
+        navigate("/")
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Sign up successfully",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -72,17 +73,18 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        updateUser({displayName:name,photoURL:photo}).then(()=>{
-setUser({ ...user, displayName: name, photoURL: photo });
-        }).catch(error=>{
-          console.log(error)
-        })
-        navigate('/')
-      
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
-        setUser(error)
+        setUser(error);
       });
   };
   const GoogleRegister = () => {

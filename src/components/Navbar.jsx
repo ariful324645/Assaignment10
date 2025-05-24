@@ -65,7 +65,7 @@ const Navbar = () => {
               }
               to="/findRoommate"
             >
-              <li>FindRoommate</li>
+              <li>AddRoommate</li>
             </NavLink>
           </ul>
         </div>
