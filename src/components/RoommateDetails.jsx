@@ -17,7 +17,7 @@ const RoommateDetails = () => {
     contactInfo,
     room,
   } = user;
-  console.log(user);
+  // console.log(user);
   return (
     <div>
       <div className="w-[500px] mx-auto rounded-2xl my-10 shadow-xl bg-white hover:shadow-2xl transition-all duration-300 border border-gray-300 p-4 space-y-4">

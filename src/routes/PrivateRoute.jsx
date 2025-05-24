@@ -4,7 +4,7 @@ import { Navigate } from "react-router";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
-  console.log(user);
+//   console.log(user);
   if (loading) {
     return (
       <div className="flex text-center items-center justify-center mt-52">

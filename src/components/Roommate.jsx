@@ -8,7 +8,7 @@ const Roommate = ({ roommate }) => {
   const { _id, title, location, rentAmount, description, availability } =
     roommate;
 
-  const [isDeleted, setIsDeleted] = useState(false); 
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -21,7 +21,7 @@ const Roommate = ({ roommate }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/roommates/${id}`, {
+        fetch(`https://roommate-finder-server-one.vercel.app/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -32,24 +32,28 @@ const Roommate = ({ roommate }) => {
                 "Your Roommate has been deleted.",
                 "success"
               );
-              setIsDeleted(true); 
+              setIsDeleted(true);
             }
           });
       }
     });
   };
 
-  if (isDeleted) return null; 
+  if (isDeleted) return null;
 
   return (
     <div className="card bg-gradient-to-r from-cyan-100 to-blue-100 card-md shadow-sm">
       <div className="card-body space-y-3">
         <h1 className="text-2xl font-semibold">{title}</h1>
-        <p className="text-xl flex gap-2 items-center"> Price:
+        <p className="text-xl flex gap-2 items-center">
+          {" "}
+          Price:
           <FaDollarSign />
           {rentAmount}
         </p>
-        <p className="text-xl flex gap-2 items-center"> Location:
+        <p className="text-xl flex gap-2 items-center">
+          {" "}
+          Location:
           <MdLocationOn />
           {location}
         </p>

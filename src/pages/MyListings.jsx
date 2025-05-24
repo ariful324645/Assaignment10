@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const MyListings = () => {
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
 
   const { user } = use(AuthContext);
   const [myListings, setMylistings] = useState([]);
@@ -21,7 +21,7 @@ const MyListings = () => {
       });
   }, [user.email]);
 
-  console.log(myListings);
+  // console.log(myListings);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -34,7 +34,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/roommates/${id}`, {
+        fetch(`https://roommate-finder-server-one.vercel.app/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

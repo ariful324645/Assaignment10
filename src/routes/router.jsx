@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/myListings",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
       {
         path: "/roomDetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>
@@ -112,7 +112,7 @@ const router = createBrowserRouter([
       {
         path: "updateRoommate/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>

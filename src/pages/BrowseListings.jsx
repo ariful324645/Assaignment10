@@ -5,7 +5,7 @@ import { Link, useLoaderData } from "react-router";
 const BrowseListings = () => {
   const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
-  console.log(initialUsers);
+  // console.log(initialUsers);
   return (
     <div className="w-11/12 mx-auto my-10">
       <h1 className="text-2xl font-bold text-center mb-5 text-blue-500">

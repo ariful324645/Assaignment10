@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import Tip from "./Tip";
-
 
 const RoommateTips = () => {
   const [tips, setTips] = useState([]);
-  console.log(tips);
+  // console.log(tips);
   useEffect(() => {
     fetch("./tips.json")
       .then((res) => res.json())
@@ -12,8 +12,22 @@ const RoommateTips = () => {
   }, []);
   return (
     <div className="w-11/12 mx-auto my-3">
-      <h1 className="font-bold text-3xl text-center mb-4 ">Roommates tips & Guides</h1>
-      <p className="w-4/6 mx-auto text-center mb-6">
+      <div>
+       
+        <h2 className="text-5xl text-center mb-6 text-gray-600">
+          <Typewriter
+            words={["   Roommates Tips & Guides"]}
+            loop={0} // 0 means infinite loop
+            cursor
+            cursorStyle="|"
+            typeSpeed={90}
+            deleteSpeed={30}
+            delaySpeed={1000}
+          />
+        </h2>
+      </div>
+
+      <p className="w-4/6 mx-auto text-center mb-8">
         Discover helpful tips and practical guides for living with roommates —
         from setting boundaries and managing shared expenses to creating a
         comfortable and respectful home environment. Make your shared living
@@ -26,9 +40,6 @@ const RoommateTips = () => {
       </div>
     </div>
   );
-
-  
-  
 };
 
 export default RoommateTips;

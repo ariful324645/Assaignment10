@@ -22,8 +22,8 @@ const UpdateRoommate = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedRoommate = Object.fromEntries(formData.entries());
-    console.log(updatedRoommate);
-    fetch(`http://localhost:3000/roommates/${_id}`, {
+    // console.log(updatedRoommate);
+    fetch(`https://roommate-finder-server-one.vercel.app/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const UpdateRoommate = () => {
             timer: 1500,
           });
         }
-        console.log(data);
+        // console.log(data);
       });
   };
   return (
