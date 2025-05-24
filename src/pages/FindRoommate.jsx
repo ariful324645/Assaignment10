@@ -11,16 +11,16 @@ const FindRoommate = () => {
     const newRoommate=Object.fromEntries(formData.entries())
     // console.log(newRoommate)
 
-    fetch("http://localhost:3000/roommates", {
-                method:'POST',
-                headers:{
-                                "content-type":"application/json"
-                },
-                body:JSON.stringify(newRoommate)
+    fetch("https://roommate-finder-server-one.vercel.app/roommates", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newRoommate),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId){
+        if (data.insertedId) {
           console.log("after adding Roommate", data);
           Swal.fire({
             position: "center",
@@ -30,7 +30,6 @@ const FindRoommate = () => {
             timer: 1500,
           });
         }
-      
       });
   };
   return (

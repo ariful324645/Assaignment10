@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router";
 
 const RoommateDetails = () => {
   const user = useLoaderData();
+  console.log(user)
   const {
     _id,
     title,

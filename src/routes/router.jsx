@@ -14,7 +14,6 @@ import FeaturesRoommmates from "../components/FeaturesRoommmates";
 
 import RoommateTips from "../components/RoommateTips";
 import TopCities from "../components/TopCities";
-import { div } from "framer-motion/client";
 import FindRoommate from "../pages/FindRoommate";
 import PrivateRoute from "./PrivateRoute";
 import MyListings from "../pages/MyListings";
@@ -30,7 +29,10 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        loader: () => fetch("http://localhost:3000/top-six-roommate"),
+        loader: () =>
+          fetch(
+            "https://roommate-finder-server-one.vercel.app/top-six-roommate"
+          ),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-46">
             <span className="loading loading-bars loading-md"></span>
@@ -42,7 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/browseListings",
-        loader: () => fetch("http://localhost:3000/roommates"),
+        loader: () =>
+          fetch("https://roommate-finder-server-one.vercel.app/roommates"),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>
@@ -63,10 +66,11 @@ const router = createBrowserRouter([
             <span className="loading loading-bars loading-xl"></span>
           </div>
         ),
-        element:<PrivateRoute>
-          <MyListings></MyListings>
-        </PrivateRoute>
-        
+        element: (
+          <PrivateRoute>
+            <MyListings></MyListings>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/findRoommate",
@@ -96,7 +100,9 @@ const router = createBrowserRouter([
       {
         path: "/roomDetails/:id",
         loader: ({ params }) =>
-          fetch(`https://roommate-finder-server-one.vercel.app/${params.id}`),
+          fetch(
+            `https://roommate-finder-server-one.vercel.app/roommates/${params.id}`
+          ),
         hydrateFallbackElement: (
           <div className="flex text-center items-center justify-center mt-52">
             <span className="loading loading-bars loading-md"></span>
@@ -104,10 +110,11 @@ const router = createBrowserRouter([
             <span className="loading loading-bars loading-xl"></span>
           </div>
         ),
-        element:<PrivateRoute>
-          <RoommateDetails></RoommateDetails>
-        </PrivateRoute>
-      
+        element: (
+          <PrivateRoute>
+            <RoommateDetails></RoommateDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "updateRoommate/:id",
@@ -120,10 +127,11 @@ const router = createBrowserRouter([
             <span className="loading loading-bars loading-xl"></span>
           </div>
         ),
-        element:<PrivateRoute>
-          <UpdateRoommate></UpdateRoommate>
-        </PrivateRoute>
-     
+        element: (
+          <PrivateRoute>
+            <UpdateRoommate></UpdateRoommate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/roommateTips",
