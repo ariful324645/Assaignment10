@@ -43,7 +43,7 @@ const Roommate = ({ roommate }) => {
 
   return (
     <div className="card  bg-white text- card-md shadow-sm">
-      <div className="card-body space-y-3">white
+      <div className="card-body space-y-3">
         <h1 className="text-xl font-semibold">{title}</h1>
         <p className="flex items-center">
           {" "}
